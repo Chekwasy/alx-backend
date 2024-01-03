@@ -24,8 +24,8 @@ class FIFOCache(BaseCaching):
         if key is None or item is None:
             return
 
-        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS
-        ) and key not in self.cache_data:
+        ln = len(self.cache_data)
+        if (ln >= BaseCaching.MAX_ITEMS) and (key not in self.cache_data):
             for ky in self.cache_data.keys():
                 first_key = ky
                 self.cache_data.pop(ky)

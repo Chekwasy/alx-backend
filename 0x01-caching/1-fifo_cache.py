@@ -4,7 +4,6 @@
 '''
 
 
-from collections import OrderedDict
 from base_caching import BaseCaching
 
 
@@ -15,7 +14,7 @@ class FIFOCache(BaseCaching):
 
     def __init__(self):
         super().__init__()
-        self.cache_data = OrderedDict()
+        self.cache_data = {}
 
     def put(self, key, item):
         '''assign to the dictionary `self.cache_data` the
@@ -26,7 +25,7 @@ class FIFOCache(BaseCaching):
             return
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            first_key, _ = self.cache_data.popitem(last=False)
+            first_key, ref = self.cache_data.popitem(last=False)
             print(f"DISCARD: {first_key}")
 
         self.cache_data[key] = item

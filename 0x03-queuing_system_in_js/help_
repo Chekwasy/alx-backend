@@ -1,0 +1,24 @@
+#check for connectivuty
+redis-cli
+
+#start server and run client
+sudo service redis-server start
+
+redis-cli
+
+
+#inside 127.0.0.1:6379>
+
+#if auth is done. show err if not done
+auth insert-redis-password-here
+
+
+config get dir
+#shows 1) "dir"
+#      2) "/var/lib/redis"
+
+
+#view dump.rdb from  "/var/lib/redis"
+
+#exit from client
+exit
